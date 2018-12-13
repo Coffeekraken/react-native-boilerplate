@@ -1,0 +1,24 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb","react-app","prettier","prettier/react"],
+  "rules": {
+    "semi": ["error","never"],
+    "import/newline-after-import": "off",
+    "no-underscore-dangle": "off",
+    "react/jsx-filename-extension": "off",
+    "jsx-a11y/media-has-caption": "off",
+    "import/no-named-as-default": "off",
+    "import/no-named-as-default-member": "off",
+    "no-param-reassign": "off",
+    "react/forbid-prop-types": "off",
+    "import/prefer-default-export": "off",
+    "no-shadow": "off",
+    "jsx-a11y/no-autofocus": "off",
+    "class-methods-use-this": "off",
+    "react/jsx-no-bind": "off"
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  }
+}

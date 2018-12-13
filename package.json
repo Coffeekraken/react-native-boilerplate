@@ -1,0 +1,73 @@
+{
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "eject": "expo eject",
+    "pretty-quick": "pretty-quick",
+    "pretty-quick-commit": "pretty-quick --staged > /dev/null 2>&1",
+    "test": "jest",
+    "lint": "npm run lint:js",
+    "lint:js": "eslint 'src/**/!(tests)/*.js'",
+    "messages:extract": "node scripts/extract-messages.js"
+  },
+  "pre-commit": [
+    "pretty-quick-commit",
+    "test",
+    "lint"
+  ],
+  "keywords": [
+    "coffee",
+    "kraken",
+    "coffeekraken"
+  ],
+  "author": "Coffeekraken <hello@coffeekraken.io>",
+  "license": "MIT",
+  "jest": {
+    "roots": [
+      "src"
+    ]
+  },
+  "dependencies": {
+    "expo": "^31.0.2",
+    "immer": "^1.8.2",
+    "intl": "^1.2.5",
+    "prop-types": "^15.6.2",
+    "react": "16.5.0",
+    "react-intl": "^2.7.2",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
+    "react-native-status-bar-height": "^2.2.0",
+    "react-native-vector-icons": "^6.1.0",
+    "react-navigation": "^3.0.8",
+    "react-navigation-header-buttons": "^2.1.1",
+    "react-redux": "^6.0.0",
+    "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.7",
+    "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.2.0",
+    "@babel/register": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-expo": "^5.0.0",
+    "babel-preset-react": "^6.24.1",
+    "chalk": "^2.4.1",
+    "eslint": "^5.10.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-config-react-app": "^3.0.5",
+    "eslint-plugin-flowtype": "^3.2.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "glob-all": "^3.1.0",
+    "jest": "^23.6.0",
+    "pre-commit": "^1.2.2",
+    "pretty-quick": "^1.8.0",
+    "sort-object-keys": "^1.1.2"
+  },
+  "private": true
+}

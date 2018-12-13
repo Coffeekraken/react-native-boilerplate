@@ -1,0 +1,15 @@
+{
+  "counter.counter.decrement": "Decrement",
+  "counter.counter.decrement.tooltip": "Decrement the counter",
+  "counter.counter.increment": "Increment",
+  "counter.counter.increment.tooltip": "Increment the counter",
+  "general.home": "Home",
+  "homepage.body": "React Native boilerplate integrated with expo, redux, redux-thunk, reselect and more...",
+  "homepage.title": "Coffeekraken React Native Boilerplate",
+  "todo.add": "Add",
+  "todo.cancel": "Cancel",
+  "todo.newTodo": "New todo",
+  "todo.show.active": "Active",
+  "todo.show.all": "All",
+  "todo.show.completed": "Completed"
+}
