@@ -1,11 +1,23 @@
 import React from 'react'
-import { View, FlatList, Text, StyleSheet, Switch, Modal, TextInput, Image } from 'react-native'
+import {
+  View,
+  FlatList,
+  Text,
+  StyleSheet,
+  Switch,
+  Modal,
+  TextInput,
+  Image
+} from 'react-native'
 import { connect } from 'react-redux'
 import { injectIntl } from 'react-intl'
 import PropTypes from 'prop-types'
 
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import HeaderButtons, { HeaderButton, Item } from 'react-navigation-header-buttons'
+import HeaderButtons, {
+  HeaderButton,
+  Item
+} from 'react-navigation-header-buttons'
 
 import { addTodo, toggleTodo, removeTodo, changeFilter } from './actions'
 // import { FILTER_ALL, FILTER_ACTIVE, FILTER_COMPLETED } from './constants'
@@ -24,7 +36,12 @@ const IoniconsHeaderButton = passMeFurther => (
   // the `passMeFurther` variable here contains props from <Item .../> as well as <HeaderButtons ... />
   // and it is important to pass those props to `HeaderButton`
   // then you may add some information like icon size or color (if you use icons)
-  <HeaderButton {...passMeFurther} IconComponent={Ionicons} iconSize={23} color={theme.colors.primary} />
+  <HeaderButton
+    {...passMeFurther}
+    IconComponent={Ionicons}
+    iconSize={23}
+    color={theme.colors.primary}
+  />
 )
 
 // register the reducer
@@ -32,7 +49,7 @@ registerReducer('todos', reducer)
 
 const styles = StyleSheet.create({
   container: {
-   flex: 1
+    flex: 1
   },
   item: {
     flexDirection: 'row',
@@ -48,17 +65,20 @@ const styles = StyleSheet.create({
     flex: 1
   },
   itemButton: {
-    flex:0
+    flex: 0
   }
 })
 
 class TodoPage extends React.PureComponent {
-
-  static navigationOptions = ({navigation}) => ({
+  static navigationOptions = ({ navigation }) => ({
     title: 'Todos',
     headerRight: (
       <HeaderButtons HeaderButtonComponent={IoniconsHeaderButton}>
-        <Item title="search" iconName="ios-add" onPress={navigation.getParam('showAddModal') } />
+        <Item
+          title="search"
+          iconName="ios-add"
+          onPress={navigation.getParam('showAddModal')}
+        />
       </HeaderButtons>
     )
   })
@@ -120,12 +140,19 @@ class TodoPage extends React.PureComponent {
       <View style={styles.container}>
         <FlatList
           data={todos}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={({item}) => (
+          keyExtractor={item => item.id.toString()}
+          renderItem={({ item }) => (
             <View style={styles.item}>
-              <Switch value={item.done} onChange={(e) => this.toggleTodo(e, item)} />
+              <Switch
+                value={item.done}
+                onChange={e => this.toggleTodo(e, item)}
+              />
               <Text style={styles.itemText}>{item.text}</Text>
-              <Button style={styles.itemButton} onPress={(e) => this.removeTodo(e, item)} title="X" />
+              <Button
+                style={styles.itemButton}
+                onPress={e => this.removeTodo(e, item)}
+                title="X"
+              />
             </View>
           )}
         />
@@ -134,11 +161,42 @@ class TodoPage extends React.PureComponent {
           visible={addModalVisible}
           onRequestClose={() => {}}
         >
-          <View style={{ padding: 40, justifyContent: 'center', alignContent: 'center' }}>
-            <Image source={checkIconImg} style={{ height: 200, marginTop: 100, marginBottom: 50 }} resizeMode="contain" />
-            <TextInput placeholder={intl.formatMessage(messages.newTodo)} autoCorrect onChangeText={this.onChange.bind(this)} value={newTodoText} style={{height: 40, borderColor: '#ddd', borderWidth: 1, marginTop:theme.spaces.default, marginBottom:theme.spaces.default, paddingLeft: theme.lookAndFeel.paddingVertical, paddingRight: theme.lookAndFeel.paddingVertical }} />
-            <Button title={intl.formatMessage(messages.add)} onPress={() => this.addTodo(newTodoText) } style={{marginBottom: theme.spaces.default}} />
-            <Button title={intl.formatMessage(messages.cancel)} onPress={() => this.setState({ addModalVisible: false }) } />
+          <View
+            style={{
+              padding: 40,
+              justifyContent: 'center',
+              alignContent: 'center'
+            }}
+          >
+            <Image
+              source={checkIconImg}
+              style={{ height: 200, marginTop: 100, marginBottom: 50 }}
+              resizeMode="contain"
+            />
+            <TextInput
+              placeholder={intl.formatMessage(messages.newTodo)}
+              autoCorrect
+              onChangeText={this.onChange.bind(this)}
+              value={newTodoText}
+              style={{
+                height: 40,
+                borderColor: '#ddd',
+                borderWidth: 1,
+                marginTop: theme.spaces.default,
+                marginBottom: theme.spaces.default,
+                paddingLeft: theme.lookAndFeel.paddingVertical,
+                paddingRight: theme.lookAndFeel.paddingVertical
+              }}
+            />
+            <Button
+              title={intl.formatMessage(messages.add)}
+              onPress={() => this.addTodo(newTodoText)}
+              style={{ marginBottom: theme.spaces.default }}
+            />
+            <Button
+              title={intl.formatMessage(messages.cancel)}
+              onPress={() => this.setState({ addModalVisible: false })}
+            />
           </View>
         </Modal>
       </View>

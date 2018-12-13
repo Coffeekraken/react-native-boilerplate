@@ -1,8 +1,11 @@
 import React from 'react'
 import { injectIntl } from 'react-intl'
+import PropTypes from 'prop-types'
 
 import { View, Image, StyleSheet } from 'react-native'
 import { Video } from 'expo'
+import { NavigationEvents } from 'react-navigation'
+
 import Button from '../../components/Button'
 import P from '../../components/P'
 
@@ -46,16 +49,75 @@ const styles = StyleSheet.create({
   }
 })
 
-export default injectIntl(({navigation, intl}) => (
-  <View style={styles.container}>
-    <Video source={backgroundVideo} style={styles.backgroundVideo} resizeMode="cover" shouldPlay isMuted isLooping />
-    <View style={styles.header}>
-      <Image source={coffeekrakenLogo} resizeMode="contain" style={styles.image} />
-      <P content={intl.formatMessage(messages.body)} style={{marginBottom: theme.spaces.default, textAlign: 'center'}} />
-    </View>
-    <View style={styles.buttons}>
-      <Button onPress={() => navigation.navigate('CounterPage')} title="Counter" style={{ marginBottom: theme.spaces.default }} />
-      <Button onPress={() => navigation.navigate('TodoPage')} title="Todo" />
-    </View>
-  </View>
-))
+class HomePage extends React.PureComponent {
+  state = {
+    isVideoPlaying: true
+  }
+
+  onBlur() {
+    this.setState({
+      isVideoPlaying: false
+    })
+  }
+
+  onFocus() {
+    this.setState({
+      isVideoPlaying: true
+    })
+  }
+
+  render() {
+    const { navigation, intl } = this.props
+    const { isVideoPlaying } = this.state
+    return (
+      <>
+        <NavigationEvents
+          onWillFocus={() => this.onFocus()}
+          onWillBlur={() => this.onBlur()}
+        />
+        <View style={styles.container}>
+          <Video
+            source={backgroundVideo}
+            style={styles.backgroundVideo}
+            resizeMode="cover"
+            shouldPlay={isVideoPlaying}
+            isMuted
+            isLooping
+          />
+          <View style={styles.header}>
+            <Image
+              source={coffeekrakenLogo}
+              resizeMode="contain"
+              style={styles.image}
+            />
+            <P
+              content={intl.formatMessage(messages.body)}
+              style={{
+                marginBottom: theme.spaces.default,
+                textAlign: 'center'
+              }}
+            />
+          </View>
+          <View style={styles.buttons}>
+            <Button
+              onPress={() => navigation.navigate('CounterPage')}
+              title="Counter"
+              style={{ marginBottom: theme.spaces.default }}
+            />
+            <Button
+              onPress={() => navigation.navigate('TodoPage')}
+              title="Todo"
+            />
+          </View>
+        </View>
+      </>
+    )
+  }
+}
+
+HomePage.propTypes = {
+  navigation: PropTypes.object.isRequired,
+  intl: PropTypes.object.isRequired
+}
+
+export default injectIntl(HomePage)
