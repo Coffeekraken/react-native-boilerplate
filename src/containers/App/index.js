@@ -54,7 +54,8 @@ const AppNavigator = createBottomTabNavigator(
       style: {
         height: 70,
         justifyContent: 'center',
-        alignContent: 'center'
+        alignContent: 'center',
+        backgroundColor: theme.colors.secondary
       },
       labelStyle: {
         position: 'relative',
