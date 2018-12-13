@@ -19,7 +19,6 @@ registerReducer('counter', reducer)
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
-    textAlign: 'center',
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -50,8 +49,15 @@ class Counter extends React.PureComponent {
     return (
       <View style={styles.container}>
         <Text style={styles.text}>{count}</Text>
-        <Button style={styles.button} onPress={() => this.decrement()} title={intl.formatMessage(messages.decrement)} />
-        <Button onPress={() => this.increment()} title={intl.formatMessage(messages.increment)} />
+        <Button
+          style={styles.button}
+          onPress={() => this.decrement()}
+          title={intl.formatMessage(messages.decrement)}
+        />
+        <Button
+          onPress={() => this.increment()}
+          title={intl.formatMessage(messages.increment)}
+        />
       </View>
     )
   }
@@ -79,7 +85,9 @@ const mapDispatchToProps = dispatch => ({
   decrement: () => dispatch(decrementCounter())
 })
 
-export default injectIntl(connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Counter))
+export default injectIntl(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Counter)
+)
