@@ -4,13 +4,17 @@ import 'intl'
 import React from 'react'
 import { Provider } from 'react-redux'
 
-import store from './store'
+import App from './containers/App'
+import LanguageProvider from './containers/LanguageProvider'
 
-import Bootstrap from './bootstrap'
+import { translationMessages, locale } from './i18n'
+import store from './store'
 
 // render the app
 export default () => (
   <Provider store={store}>
-    <Bootstrap />
+    <LanguageProvider locale={locale} messages={translationMessages}>
+      <App />
+    </LanguageProvider>
   </Provider>
 )
