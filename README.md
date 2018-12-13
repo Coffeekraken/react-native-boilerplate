@@ -50,7 +50,6 @@ React Native boilerplate integrated with expo, redux, redux-thunk, reselect, and
 - [Redux thunk](https://github.com/reduxjs/redux-thunk) built-in
 - [Reselect](https://github.com/reduxjs/reselect) built-in
 - Immutable state through [Immer](https://github.com/mweststrate/immer)
-- SSR (server side rendering) ready 🍺
 - I18n ready through [react-intl](https://github.com/yahoo/react-intl)
 - Code linting through [ESLint](https://eslint.org/)
 - [Jest](https://jestjs.io/) tests stack
