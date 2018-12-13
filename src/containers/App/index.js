@@ -28,6 +28,7 @@ const AppNavigator = createBottomTabNavigator(
   },
   {
     initialRouteName: 'HomePage',
+
     defaultNavigationOptions: ({ navigation }) => ({
       // eslint-disable-next-line
       tabBarIcon: ({ horizontal, tintColor }) => {
@@ -50,6 +51,15 @@ const AppNavigator = createBottomTabNavigator(
       }
     }),
     tabBarOptions: {
+      style: {
+        height: 70,
+        justifyContent: 'center',
+        alignContent: 'center'
+      },
+      labelStyle: {
+        position: 'relative',
+        top: -10
+      },
       activeTintColor: theme.colors.secondary,
       inactiveTintColor: '#fff',
       activeBackgroundColor: theme.colors.primary,
