@@ -55,7 +55,7 @@ React Native boilerplate integrated with expo, redux, redux-thunk, reselect, and
 - [Jest](https://jestjs.io/) tests stack
 - Automatically reject commits if tests and linting fail through [pre-commit](https://www.npmjs.com/package/pre-commit)
 
-![Coffeekraken React Native Boilerplate](/.resources/app.preview.jpg)
+![Coffeekraken React Native Boilerplate](/.resources/app.preview.png)
 
 ## Table of content
 
