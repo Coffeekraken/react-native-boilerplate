@@ -55,6 +55,8 @@ React Native boilerplate integrated with expo, redux, redux-thunk, reselect, and
 - [Jest](https://jestjs.io/) tests stack
 - Automatically reject commits if tests and linting fail through [pre-commit](https://www.npmjs.com/package/pre-commit)
 
+![Coffeekraken React Native Boilerplate](/.resources/app.preview.jpg)
+
 ## Table of content
 
 1. **[Go to website](https://coffeekraken.io)**
@@ -68,6 +70,7 @@ React Native boilerplate integrated with expo, redux, redux-thunk, reselect, and
 9. [Licence](#readme-license)
 
 <a name="readme-install"></a>
+
 ## Install
 
 ```sh
@@ -77,6 +80,7 @@ npm install
 > If needed, install [npm](https://www.npmjs.com/get-npm).
 
 <a id="readme-scripts"></a>
+
 ## Scripts
 
 - `npm start` : Start expo and build process

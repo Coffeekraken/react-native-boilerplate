@@ -27,7 +27,10 @@
   "jest": {
     "roots": [
       "src"
-    ]
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/.jest/jest.transform.js"
+    }
   },
   "dependencies": {
     "expo": "^31.0.2",
@@ -49,8 +52,10 @@
   },
   "devDependencies": {
     "@babel/preset-env": "^7.2.0",
+    "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-expo": "^5.0.0",
     "babel-preset-react": "^6.24.1",
@@ -66,6 +71,7 @@
     "glob-all": "^3.1.0",
     "jest": "^23.6.0",
     "pre-commit": "^1.2.2",
+    "prettier": "^1.15.3",
     "pretty-quick": "^1.8.0",
     "sort-object-keys": "^1.1.2"
   },
