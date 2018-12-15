@@ -12,7 +12,7 @@ export default {
     paddingVertical: 20,
     paddingHorizontal: 10,
     borderRadius: 5,
-    disabledOpacity: .3,
+    disabledOpacity: 0.3,
     lineHeight: 1.4
   },
   spaces: {

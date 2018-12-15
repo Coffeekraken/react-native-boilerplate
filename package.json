@@ -5,6 +5,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "eject": "expo eject",
+    "prettier": "prettier **/*.js --write",
     "pretty-quick": "pretty-quick",
     "pretty-quick-commit": "pretty-quick --staged > /dev/null 2>&1",
     "test": "jest",
@@ -47,6 +48,7 @@
     "react-redux": "^6.0.0",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.7",
+    "redux-saga": "^0.16.2",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0"
   },
