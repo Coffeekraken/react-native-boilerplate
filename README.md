@@ -51,6 +51,7 @@ React Native boilerplate integrated with expo, redux, redux-thunk, reselect, and
 
 - Complete build process using [expo](https://expo.io/)
 - [Redux](https://redux.js.org/) built-in
+- [Redux saga](https://github.com/redux-saga/redux-saga) built-in
 - [Redux thunk](https://github.com/reduxjs/redux-thunk) built-in
 - [Reselect](https://github.com/reduxjs/reselect) built-in
 - Immutable state through [Immer](https://github.com/mweststrate/immer)
