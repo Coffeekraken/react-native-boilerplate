@@ -1,4 +1,5 @@
 // some polyfills
+import '@babel/polyfill'
 import 'intl'
 
 import React from 'react'
