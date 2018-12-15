@@ -3,15 +3,15 @@ import { injectIntl } from 'react-intl'
 import PropTypes from 'prop-types'
 
 import { View, Image, StyleSheet } from 'react-native'
-import { Video } from 'expo'
-import { NavigationEvents } from 'react-navigation'
+// import { Video } from 'expo'
+// import { NavigationEvents } from 'react-navigation'
 
 import Button from '../../components/Button'
 import P from '../../components/P'
 
 import messages from './messages'
 
-import backgroundVideo from '../../assets/disaster.mp4'
+// import backgroundVideo from '../../assets/disaster.mp4'
 import coffeekrakenLogo from '../../assets/coffeekraken-logo.png'
 import theme from '../../theme'
 
@@ -51,39 +51,39 @@ const styles = StyleSheet.create({
 
 class HomePage extends React.PureComponent {
   state = {
-    isVideoPlaying: true
+    // isVideoPlaying: true
   }
 
-  onBlur() {
-    this.setState({
-      isVideoPlaying: false
-    })
-  }
+  // onBlur() {
+  //   this.setState({
+  //     isVideoPlaying: false
+  //   })
+  // }
 
-  onFocus() {
-    this.setState({
-      isVideoPlaying: true
-    })
-  }
+  // onFocus() {
+  //   this.setState({
+  //     isVideoPlaying: true
+  //   })
+  // }
 
   render() {
     const { navigation, intl } = this.props
-    const { isVideoPlaying } = this.state
+    // const { isVideoPlaying } = this.state
     return (
       <>
-        <NavigationEvents
+        {/* <NavigationEvents
           onWillFocus={() => this.onFocus()}
           onWillBlur={() => this.onBlur()}
-        />
+        /> */}
         <View style={styles.container}>
-          <Video
+          {/* <Video
             source={backgroundVideo}
             style={styles.backgroundVideo}
             resizeMode="cover"
             shouldPlay={isVideoPlaying}
             isMuted
             isLooping
-          />
+          /> */}
           <View style={styles.header}>
             <Image
               source={coffeekrakenLogo}
