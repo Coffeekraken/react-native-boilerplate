@@ -19,7 +19,13 @@ import HeaderButtons, {
   Item
 } from 'react-navigation-header-buttons'
 
-import { addTodo, toggleTodo, removeTodo, changeFilter } from './actions'
+import {
+  fetchTodos,
+  addTodo,
+  toggleTodo,
+  removeTodo,
+  changeFilter
+} from './actions'
 // import { FILTER_ALL, FILTER_ACTIVE, FILTER_COMPLETED } from './constants'
 import { getVisibleTodos } from './selectors'
 import messages from './messages'
@@ -29,6 +35,9 @@ import Button from '../../components/Button'
 
 import reducer from './reducer'
 import registerReducer from '../../registerReducer'
+
+import sagas from './sagas'
+import registerSaga from '../../registerSaga'
 
 import checkIconImg from '../../assets/check-icon.png'
 
@@ -46,6 +55,9 @@ const IoniconsHeaderButton = passMeFurther => (
 
 // register the reducer
 registerReducer('todos', reducer)
+
+// register the saga
+registerSaga(sagas)
 
 const styles = StyleSheet.create({
   container: {
@@ -89,7 +101,7 @@ class TodoPage extends React.PureComponent {
   }
 
   componentDidMount() {
-    const { navigation } = this.props
+    const { navigation, fetchTodos } = this.props
     navigation.setParams({
       showAddModal: () => {
         this.setState({
@@ -97,6 +109,7 @@ class TodoPage extends React.PureComponent {
         })
       }
     })
+    fetchTodos()
   }
 
   onChange(text) {
@@ -210,6 +223,7 @@ TodoPage.defaultProps = {
 
 TodoPage.propTypes = {
   navigation: PropTypes.object,
+  fetchTodos: PropTypes.func.isRequired,
   changeFilter: PropTypes.func.isRequired,
   addTodo: PropTypes.func.isRequired,
   toggleTodo: PropTypes.func.isRequired,
@@ -223,6 +237,7 @@ const mapStateToProps = state => ({
   filter: state.todos.filter
 })
 const mapDispatchToProps = dispatch => ({
+  fetchTodos: () => dispatch(fetchTodos()),
   addTodo: todo => dispatch(addTodo(todo)),
   toggleTodo: todo => dispatch(toggleTodo(todo)),
   removeTodo: todo => dispatch(removeTodo(todo)),

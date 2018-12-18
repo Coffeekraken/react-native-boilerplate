@@ -1,6 +1,6 @@
 // compile required files
 require('@babel/register')({
-  presets: [ '@babel/preset-env' ]
+  presets: ['@babel/preset-env']
 })
 
 // import some libraries
@@ -16,19 +16,17 @@ const locales = i18n.locales
 const DEFAULT_LOCALE = i18n.DEFAULT_LOCALE
 
 // search for "messages.js" files
-const files = glob.sync([
-  'src/**/messages.js'
-])
+const files = glob.sync(['src/**/messages.js'])
 
 // store translations
 const translations = {}
 
 // loop on each files found
-files.forEach((file) => {
+files.forEach(file => {
   const messages = require(`../${file}`).default
 
   // loop on each locales
-  locales.forEach((locale) => {
+  locales.forEach(locale => {
     // load the locale translations messages
     if (!translations[locale]) {
       // try to load existing locale file
@@ -41,7 +39,7 @@ files.forEach((file) => {
     }
 
     // loop on each messages from the code
-    for(key in messages) {
+    for (key in messages) {
       const trans = messages[key]
       const transId = trans.id
       const transDefaultMessage = trans.defaultMessage
@@ -57,10 +55,12 @@ files.forEach((file) => {
 })
 
 console.log(chalk.green('The messages have been extracted correctly!'))
-for(locale in translations) {
+for (locale in translations) {
   translations[locale] = sortObject(translations[locale])
   // save file
-  fs.writeFileSync(`src/translations/${locale}.json`, JSON.stringify(translations[locale], null, 2))
-  console.log(`- src/translations/${locale}.json`);
+  fs.writeFileSync(
+    `src/translations/${locale}.json`,
+    JSON.stringify(translations[locale], null, 2)
+  )
+  console.log(`- src/translations/${locale}.json`)
 }
-

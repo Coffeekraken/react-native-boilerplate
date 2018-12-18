@@ -14,12 +14,33 @@ import TodoPage from '../TodoPage'
 
 import theme from '../../theme'
 
-const TodoStack = createStackNavigator({
-  TodoPage
-})
-const CounterStack = createStackNavigator({
-  CounterPage
-})
+const defaultNavigationOptions = {
+  headerStyle: {
+    backgroundColor: theme.colors.secondary
+  },
+  headerTitleStyle: {
+    color: '#fff'
+  }
+}
+
+const TodoStack = createStackNavigator(
+  {
+    TodoPage: {
+      screen: TodoPage
+    }
+  },
+  {
+    defaultNavigationOptions
+  }
+)
+const CounterStack = createStackNavigator(
+  {
+    CounterPage
+  },
+  {
+    defaultNavigationOptions
+  }
+)
 const AppNavigator = createBottomTabNavigator(
   {
     HomePage,
