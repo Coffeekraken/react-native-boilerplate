@@ -34,10 +34,10 @@ import theme from '../../theme'
 import Button from '../../components/Button'
 
 import reducer from './reducer'
-import registerReducer from '../../registerReducer'
+import registerReducer from '../../utils/registerReducer'
 
 import sagas from './sagas'
-import registerSaga from '../../registerSaga'
+import registerSaga from '../../utils/registerSaga'
 
 import checkIconImg from '../../assets/check-icon.png'
 

@@ -10,6 +10,4 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(sagaMiddleware, thunkMiddleware))
 )
 
-store.asyncReducers = {}
-
 export default store

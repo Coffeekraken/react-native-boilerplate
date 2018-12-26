@@ -1,4 +1,4 @@
-import sagaMiddleware from './middlewares/saga'
+import sagaMiddleware from '../middlewares/saga'
 
 export default saga => {
   sagaMiddleware.run(saga)

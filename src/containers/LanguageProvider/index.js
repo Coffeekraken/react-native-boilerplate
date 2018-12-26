@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { IntlProvider } from 'react-intl'
 
 import reducer from './reducer'
-import registerReducer from '../../registerReducer'
+import registerReducer from '../../utils/registerReducer'
 
 // inject the reducer to the app
 registerReducer('language', reducer)

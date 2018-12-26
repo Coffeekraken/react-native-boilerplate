@@ -10,7 +10,7 @@ import { incrementCounter, decrementCounter } from './actions'
 import Button from '../../components/Button'
 
 import reducer from './reducer'
-import registerReducer from '../../registerReducer'
+import registerReducer from '../../utils/registerReducer'
 import theme from '../../theme'
 
 // register the reducer
