@@ -3,6 +3,7 @@ import { StatusBar, View, StyleSheet } from 'react-native'
 import {
   createAppContainer,
   createBottomTabNavigator,
+  createMaterialTopTabNavigator,
   createStackNavigator
 } from 'react-navigation'
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -41,7 +42,7 @@ const CounterStack = createStackNavigator(
     defaultNavigationOptions
   }
 )
-const AppNavigator = createBottomTabNavigator(
+const AppNavigator = createMaterialTopTabNavigator(
   {
     HomePage,
     CounterStack,
@@ -49,7 +50,8 @@ const AppNavigator = createBottomTabNavigator(
   },
   {
     initialRouteName: 'HomePage',
-
+    tabBarPosition: 'bottom',
+    lazy: true,
     defaultNavigationOptions: ({ navigation }) => ({
       // eslint-disable-next-line
       tabBarIcon: ({ horizontal, tintColor }) => {
@@ -73,19 +75,18 @@ const AppNavigator = createBottomTabNavigator(
     }),
     tabBarOptions: {
       style: {
-        height: 70,
+        height: 100,
         justifyContent: 'center',
         alignContent: 'center',
         backgroundColor: theme.colors.secondary
       },
-      labelStyle: {
-        position: 'relative',
-        top: -10
+      indicatorStyle: {
+        top: 0,
+        backgroundColor: theme.colors.primary
       },
-      activeTintColor: theme.colors.secondary,
-      inactiveTintColor: '#fff',
-      activeBackgroundColor: theme.colors.primary,
-      inactiveBackgroundColor: theme.colors.secondary
+      showIcon: true,
+      activeTintColor: theme.colors.primary,
+      inactiveTintColor: '#fff'
     }
   }
 )
