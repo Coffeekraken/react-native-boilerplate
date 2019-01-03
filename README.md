@@ -38,7 +38,7 @@
 	</a>
 </p>
 
-React Native boilerplate integrated with expo, redux, redux-thunk, reselect, and more...
+<p class="lead">React Native boilerplate integrated with expo, redux, redux-thunk, reselect, and more...</p>
 
 ---
 
